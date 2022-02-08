@@ -1,3 +1,51 @@
+<?php  include_once('inc/conn.php'); ?>
+
+<?php  
+        if(isset($_POST['submit'])){
+            //declaring variables and assign empty values
+
+            $firstname="";
+            $lastname="";
+            $email="";
+            $password="";
+
+            $firstname=input_verify($_POST['firstname']);
+            $lastname=input_verify($_POST['lastname']);
+            $email=input_verify($_POST['email']);
+            $password=input_verify($_POST['password']);
+
+            $query="INSERT INTO TBL_User(Fname,Lname,email,pwd,Reg_DT) VALUES('{$firstname}','{$lastname}','{$email}','{$password}',NOW())";
+
+            $result=mysqli_query($conn,$query);
+
+            if($result){
+                echo "User Registration Success";
+            }else{
+                echo mysqli_error($conn);
+                        }
+            // echo $firstname;
+            // echo "<br>";
+            // echo $lastname;
+            // echo "<br>";
+            // echo $email;
+            // echo "<br>";
+            // echo $password;
+            // echo "<br>";
+
+
+        }
+
+
+
+        function input_verify($data){
+                $data=trim($data);
+                $data=stripslashes($data);
+                $data=htmlspecialchars($data);
+
+                return($data); 
+        }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
