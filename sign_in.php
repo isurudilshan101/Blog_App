@@ -79,7 +79,7 @@ function input_verify($data)
     <script src="Plugin/jquery.min.js"></script>
     <script src="Plugin/bootstrap.min.js"></script>
     <link rel="stylesheet" href="css/sign_up.css">
-    <title>Blog App</title>
+    <title>Blog App-sign_in</title>
 </head>
 
 <body>
@@ -102,7 +102,7 @@ function input_verify($data)
                                 echo $msg;
                             } ?>
 
-                            <div class="form-group">
+                            <!-- <div class="form-group">
                                 <label for="">First Name</label>
                                 <input type="text" name="firstname" id="firstname" class="form-control" placeholder="" aria-describedby="helpId">
                                 <small id="helpId" class="text-muted">Enter your first name</small>
@@ -112,7 +112,7 @@ function input_verify($data)
                                 <label for="">Last Name</label>
                                 <input type="text" name="lastname" id="lastname" class="form-control" placeholder="" aria-describedby="helpId">
                                 <small id="helpId" class="text-muted">Enter your last name</small>
-                            </div>
+                            </div> -->
 
                             <div class="form-group">
                                 <label for="">Email</label>
@@ -123,12 +123,12 @@ function input_verify($data)
                             <div class="form-group">
                                 <label for="">Password</label>
                                 <input type="password" name="password" id="password" class="form-control" placeholder="" aria-describedby="helpId">
-                                <small id="helpId" class="text-muted">Create your own password</small>
+                                <small id="helpId" class="text-muted">Enter your own password</small>
                             </div>
 
                     </div>
                     <div class="card-footer" id="card-footer">
-                        <button type="submit" name="submit" class="btn btn-primary">Sign Up</button>
+                        <button type="submit" name="submit" class="btn btn-primary">Sign In</button>
                     </div>
 
                     </form>
