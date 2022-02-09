@@ -1,17 +1,17 @@
+<?php session_start(); ?>
+
 <?php include_once('inc/conn.php'); ?>
 
 <?php
 if (isset($_POST['submit'])) {
     //declaring variables and assign empty values
 
-    $firstname = "";
-    $lastname = "";
+    
     $email = "";
     $password = "";
     $msg = "";
 
-    $firstname = input_verify($_POST['firstname']);
-    $lastname = input_verify($_POST['lastname']);
+     
     $email = input_verify($_POST['email']);
     $password = input_verify($_POST['password']);
 
@@ -27,36 +27,32 @@ if (isset($_POST['submit'])) {
     // echo $password;
     // echo "<br>";
 
-    $query1 = "SELECT * FROM TBL_User WHERE Fname='{$firstname}' AND email='{$email}'";
+    $query1 = "SELECT * FROM TBL_User WHERE email='{$email}' AND pwd='{$password}' LIMIT 1";
     $showResult = mysqli_query($conn, $query1);
+
+
 
     if ($showResult) {
         if (mysqli_num_rows($showResult) == 1) {
-            $msg = "<div class='alert alert-primary alert-dismissible fade show' role='alert'>
-                <strong>Sorry!</strong>This user already have in the system.
+
+                $user=mysqli_fetch_assoc($showResult);
+                $_SESSION['User_Fname']=$user['Fname'];
+                $_SESSION['User_Lname']=$user['Lname'];    
+
+                header("Location:index.php");
+        } else {
+            $msg = "<div class='alert alert-danger alert-dismissible fade show' role='alert'>
+                <strong>Sorry!</strong>Check oyur Email or Password.
                 <button type='button' class='close' data-dismiss='alert' aria-label='Close'>X</button>
                 </div>";
-        } else {
-            $query = "INSERT INTO TBL_User(Fname,Lname,email,pwd,Reg_DT) VALUES('{$firstname}','{$lastname}','{$email}','{$password}',NOW())";
-
-            $result = mysqli_query($conn, $query);
-
-            if ($result) {
-                $msg = "<div class='alert alert-primary alert-dismissible fade show' role='alert'>
-    <strong>User Registrstion Success!</strong> Welcome to the Blog App.
-    <button type='button' class='close' data-dismiss='alert' aria-label='Close'>X</button>
-    </div>";
-            } else {
-                echo mysqli_error($conn);
-            }
         }
     }
-}
 
 
 
 
 
+}  
 
 function input_verify($data)
 {
@@ -93,11 +89,11 @@ function input_verify($data)
 
                 <div class="card mt-4">
                     <div class="card-header" id="card-header">
-                        <h4>Sign Up Form</h4>
+                        <h4>Sign In Form</h4>
                     </div>
                     <div class="card-body" id="card-body">
 
-                        <form action="sign_up.php" method="POST" autocomplete="off">
+                        <form action="sign_in.php" method="POST" autocomplete="">
                             <?php if (!empty($msg)) {
                                 echo $msg;
                             } ?>

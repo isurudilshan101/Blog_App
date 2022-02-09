@@ -42,7 +42,7 @@ if (isset($_POST['submit'])) {
             $result = mysqli_query($conn, $query);
 
             if ($result) {
-                $msg = "<div class='alert alert-primary alert-dismissible fade show' role='alert'>
+                $msg = "<div class='alert alert-danger alert-dismissible fade show' role='alert'>
     <strong>User Registrstion Success!</strong> Welcome to the Blog App.
     <button type='button' class='close' data-dismiss='alert' aria-label='Close'>X</button>
     </div>";

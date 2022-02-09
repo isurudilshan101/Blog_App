@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,6 +21,14 @@
 <body>
     <?php include_once('inc/navbar.php');     ?>
 
+    <!-- <?php
+            if(isset($_SESSION['User_Fname'])){
+                echo $_SESSION['User_Fname'];
+            }else{
+                echo "Session not created !";
+            }
+    ?>
+ -->
     <div class="container">
         <div class="row">
             <div class="col-md-12">
