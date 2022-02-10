@@ -1,5 +1,24 @@
 <?php session_start(); ?>
 
+
+<?php include_once('inc/conn.php'); ?>
+
+<?php 
+
+        $post_body="";
+
+        $query="SELECT * FROM table_post";
+        $showPost=mysqli_query($conn, $query);
+
+        if($showPost){
+            if(mysqli_num_rows($showPost)>0){
+                    while($post=mysqli_fetch_assoc($showPost)){
+                        $post_body=$post['Post_Body'];
+                    }
+            }
+        }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 

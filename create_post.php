@@ -9,19 +9,39 @@ if (!isset($_SESSION['User_Fname'])) {
 ?>
 
 <?php
-        if(isset($_POST['submit'])){
-            $post_title=$_POST['title'];
-            $post_body=$_POST['Post_body'];
-           
-            $query="INSERT INTO table_post(Post_Title,Post_Body,Create_at) VALUES('{$post_title}','{$post_body}',NOW())";
-            $result=mysqli_query($conn,$query);
+if (isset($_POST['submit'])) {
+    $post_title =input_verify($_POST['title']);
+    $post_body = input_verify($_POST['Post_body']);
 
-            if($result) {
-                echo "Post created Successfully !";
-            }else{
-                echo "Post not created" . mysqli_error($conn);
-            }
-        }
+    $query = "INSERT INTO table_post(Post_Title,Post_Body,Create_at) VALUES('{$post_title}','{$post_body}',NOW())";
+    $result = mysqli_query($conn, $query);
+
+    if ($result) {
+        // echo "Post created Successfully !";
+        $msg = "
+
+                <div class='alert alert-primary alert-dismissible fade show' role='alert'>
+                <strong>Create a Post Successfully !</strong>
+                <button type='button' class='close' data-dismiss='alert' aria-label='Close'>X</button>
+                </div>
+                ";
+    } else {
+        echo "Post not created" . mysqli_error($conn);
+    }
+}
+
+
+
+function input_verify($data)
+{
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = html_entity_decode($data);
+
+    return ($data);
+}
+
+
 ?>
 
 <!DOCTYPE html>
