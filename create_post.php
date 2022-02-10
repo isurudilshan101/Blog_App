@@ -3,7 +3,25 @@
 <?php include_once('inc/conn.php'); ?>
 
 <?php
+if (!isset($_SESSION['User_Fname'])) {
+    header('Location:index.php');
+}
+?>
 
+<?php
+        if(isset($_POST['submit'])){
+            $post_title=$_POST['title'];
+            $post_body=$_POST['Post_body'];
+           
+            $query="INSERT INTO table_post(Post_Title,Post_Body,Create_at) VALUES('{$post_title}','{$post_body}',NOW())";
+            $result=mysqli_query($conn,$query);
+
+            if($result) {
+                echo "Post created Successfully !";
+            }else{
+                echo "Post not created" . mysqli_error($conn);
+            }
+        }
 ?>
 
 <!DOCTYPE html>
@@ -35,7 +53,7 @@
                     </div>
                     <div class="card-body" id="card-body">
 
-                        <form action="sign_in.php" method="POST" autocomplete="">
+                        <form action="create_post.php" method="POST" autocomplete="">
                             <?php if (!empty($msg)) {
                                 echo $msg;
                             } ?>
@@ -71,12 +89,18 @@
 
                             <div class="form-group">
                                 <label for=""></label>
+                                <script src="Plugin/ckeditor/ckeditor.js"></script>
                                 <textarea class="form-control" name="Post_body" id="Post_body" rows="15"></textarea>
+                                <script>
+                                    CKEDITOR.replace('Post_body');
+                                </script>
+                                <small id="helpId" class="text-muted">Post Body</small>
+
+
                             </div>
-                            <small id="helpId" class="text-muted">Post Body</small>
                     </div>
                     <div class="card-footer" id="card-footer">
-                        <button type="submit" name="submit" class="btn btn-primary">Sign In</button>
+                        <button type="submit" name="submit" class="btn btn-primary">Create Post</button>
                     </div>
 
                     </form>

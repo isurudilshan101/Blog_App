@@ -20,6 +20,10 @@
     color: #fff;
     background-color: #e60000;
   }
+  #user{
+    border: 1px solid #77ff33;
+    color: #e6ffff;
+  }
 </style>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -58,13 +62,20 @@
 
       if (isset($_SESSION['User_Fname'])) {
 
-        echo "<li class='nav-item mr-2'>
+        echo "
+        <li id='user' class='nav-item mr-2'>
+                
+        Hi, {$_SESSION['User_Fname']}
+        </li>
+        <li class='nav-item mr-2'>
                 <a id='create' class='nav-link' href='create_post.php'>Create</a>
                 </li>
 
-                <li class='nav-item'>
+                <li  class='nav-item'>
                 <a id='sign_out' class='nav-link' href='sign_out.php'>Sign Out</a>
-                </li>";
+                </li>
+                
+";
       } else {
 
         echo "<li class='nav-item'>
