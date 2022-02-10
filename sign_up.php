@@ -14,6 +14,7 @@ if (isset($_POST['submit'])) {
     $lastname = input_verify($_POST['lastname']);
     $email = input_verify($_POST['email']);
     $password = input_verify($_POST['password']);
+//    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
 
 
