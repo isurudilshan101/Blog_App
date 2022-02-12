@@ -17,32 +17,34 @@ if ($showPost) {
 
             // echo $post_body. "<br>" ;
 
+            $post_body .= "<a id='show-post' href='show_post.php?post_id={$post['Id']}'>";
             $post_body .= "<div id='main-div'>";
 
-                    $post_body .= "<h1 id='title'>";
-                    $post_body .= "{$post['Post_Title']}";
-                    $post_body .= "</h1>";
+            $post_body .= "<h1 id='title'>";
+            $post_body .= "{$post['Post_Title']}";
+            $post_body .= "</h1>";
 
-                    $post_body .= "<div id='body'>";
-                    $post_body .= "<b>";
-                    $post_body .= "{$post['Post_Srt_Nt']}";
-                    $post_body .= "</b>";
+            $post_body .= "<div id='body'>";
+            $post_body .= "<b>";
+            $post_body .= "{$post['Post_Srt_Nt']}";
+            $post_body .= "</b>";
 
-                //(only show short note--So I'm commented Post_Body)
+            //(only show short note--So I'm commented Post_Body)
 
-                    // $post_body .= "</div>";
+            // $post_body .= "</div>";
 
-                    // $post_body .= "<div id='body'>";
-                    // $post_body .= "{$post['Post_Body']}";
-                    // $post_body .= "</div>";
+            // $post_body .= "<div id='body'>";
+            // $post_body .= "{$post['Post_Body']}";
+            // $post_body .= "</div>";
 
-                    $post_body .= "<div id='body'>";
-                    $post_body.="<small>";
-                    $post_body .= "Created at-{$post['Create_at']}";
+            $post_body .= "<div id='body'>";
+            $post_body .= "<small>";
+            $post_body .= "Created at-{$post['Create_at']}";
 
-                    $post_body.="</small>";
-                    $post_body .= "</div>";
+            $post_body .= "</small>";
             $post_body .= "</div>";
+            $post_body .= "</div>";
+            $post_body .= "</a>";
         }
     }
 }
@@ -66,13 +68,22 @@ if ($showPost) {
     <title>Blog App</title>
 
     <style>
-        #main-div{
-            border:1px solid #fff;
+        #main-div {
+            border: 1px solid #fff;
             margin-bottom: 10px;
-            padding:#fff;
-            color:#fff;
+            padding: #fff;
+            color: #fff;
 
         }
+
+        #show-post{
+            text-decoration: none;
+            color:azure;
+        }
+
+
+
+        
     </style>
 </head>
 
