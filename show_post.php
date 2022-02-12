@@ -10,6 +10,7 @@ if (isset($_GET['post_id'])) {
     $Post_Id = $_GET['post_id'];
     $post_title = "";
     $post_body = "";
+    $post_create = "";
     $query = "SELECT * FROM tbl_post WHERE Id={$Post_Id}";
     $show_post = mysqli_query($conn, $query);
 
@@ -19,6 +20,7 @@ if (isset($_GET['post_id'])) {
 
             $post_title = $post['Post_Title'];
             $post_body = $post['Post_Body'];
+            $post_create = $post['Create_at'];
         }
     }
 }
@@ -52,15 +54,19 @@ if (isset($_GET['post_id'])) {
 
 
 
-        <div class="card mt-5">
-            <div class="card-header">
-            <?php echo $post_title  ?>
-            </div>
+                <div class="card mt-5">
+                    <div class="card-header">
+                        <?php echo $post_title  ?>
+                    </div>
 
-            <div class="card-body">
-            <?php echo $post_body ?>
-            </div>
-        </div>
+                    <div class="card-body">
+                        <?php echo $post_body ?>
+                    </div>
+
+                    <div class="card-footer">
+                        <?php echo  $post_create ?>
+                    </div>
+                </div>
 
             </div>
         </div>

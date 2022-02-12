@@ -24,10 +24,11 @@ if ($showPost) {
             $post_body .= "{$post['Post_Title']}";
             $post_body .= "</h1>";
 
-            $post_body .= "<div id='body'>";
+            $post_body .= "<div id='sht_nt'>";
             $post_body .= "<b>";
             $post_body .= "{$post['Post_Srt_Nt']}";
             $post_body .= "</b>";
+            $post_body .= "</div>";
 
             //(only show short note--So I'm commented Post_Body)
 
@@ -40,7 +41,6 @@ if ($showPost) {
             $post_body .= "<div id='body'>";
             $post_body .= "<small>";
             $post_body .= "Created at-{$post['Create_at']}";
-
             $post_body .= "</small>";
             $post_body .= "</div>";
             $post_body .= "</div>";
@@ -71,7 +71,7 @@ if ($showPost) {
         #main-div {
             border: 1px solid #fff;
             margin-bottom: 10px;
-            padding: #fff;
+            
             color: #fff;
 
         }
