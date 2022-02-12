@@ -11,9 +11,10 @@ if (!isset($_SESSION['User_Fname'])) {
 <?php
 if (isset($_POST['submit'])) {
     $post_title =input_verify($_POST['title']);
+    $post_srt_nt=input_verify($_POST['srt_nt']);
     $post_body = input_verify($_POST['Post_body']);
 
-    $query = "INSERT INTO table_post(Post_Title,Post_Body,Create_at) VALUES('{$post_title}','{$post_body}',NOW())";
+    $query = "INSERT INTO tbl_post(Post_Title,Post_Srt_Nt,Post_Body,Create_at) VALUES('{$post_title}','{$post_srt_nt}','{$post_body}',NOW())";
     $result = mysqli_query($conn, $query);
 
     if ($result) {
@@ -105,6 +106,16 @@ function input_verify($data)
                                 <label for="">Title</label>
                                 <input type="text" name="title" id="title" class="form-control" placeholder="" aria-describedby="helpId">
                                 <small id="helpId" class="text-muted">Post Title</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for=""></label>
+                                
+                                <textarea class="form-control" name="shrt_Nt" id="shrt_Nt" rows="5"></textarea>
+                                
+                                <small id="helpId" class="text-muted">Short Note </small>
+
+
                             </div>
 
                             <div class="form-group">

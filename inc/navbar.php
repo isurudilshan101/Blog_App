@@ -63,7 +63,7 @@
       if (isset($_SESSION['User_Fname'])) {
 
         echo "
-        <li id='user' class='nav-item mr-2'>
+        <li id='user' class='nav-item mr-2 pt-2'>
                 
         Hi, {$_SESSION['User_Fname']}
         </li>
