@@ -24,8 +24,17 @@ if ($showPost) {
                     $post_body .= "</h1>";
 
                     $post_body .= "<div id='body'>";
-                    $post_body .= "{$post['Post_Body']}";
-                    $post_body .= "</div>";
+                    $post_body .= "<b>";
+                    $post_body .= "{$post['Post_Srt_Nt']}";
+                    $post_body .= "</b>";
+
+                //(only show short note--So I'm commented Post_Body)
+
+                    // $post_body .= "</div>";
+
+                    // $post_body .= "<div id='body'>";
+                    // $post_body .= "{$post['Post_Body']}";
+                    // $post_body .= "</div>";
 
                     $post_body .= "<div id='body'>";
                     $post_body.="<small>";

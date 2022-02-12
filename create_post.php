@@ -11,7 +11,7 @@ if (!isset($_SESSION['User_Fname'])) {
 <?php
 if (isset($_POST['submit'])) {
     $post_title =input_verify($_POST['title']);
-    $post_srt_nt=input_verify($_POST['srt_nt']);
+    $post_srt_nt=input_verify($_POST['shrt_Nt']);
     $post_body = input_verify($_POST['Post_body']);
 
     $query = "INSERT INTO tbl_post(Post_Title,Post_Srt_Nt,Post_Body,Create_at) VALUES('{$post_title}','{$post_srt_nt}','{$post_body}',NOW())";
