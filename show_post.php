@@ -50,7 +50,17 @@ if (isset($_GET['post_id'])) {
         <div class="row">
             <div class="col-md-12">
 
-        <?php echo $post_title  ?>
+
+
+        <div class="card mt-5">
+            <div class="card-header">
+            <?php echo $post_title  ?>
+            </div>
+
+            <div class="card-body">
+            <?php echo $post_body ?>
+            </div>
+        </div>
 
             </div>
         </div>
