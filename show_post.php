@@ -66,6 +66,19 @@ if (isset($_GET['post_id'])) {
                     <div class="card-footer">
                         <?php echo  $post_create ?>
                     </div>
+
+
+                    <div>
+                        <?php
+
+                        if(isset($_SESSION['User_Fname'])){
+                            echo "<a class='btn btn-primary' href='edit_post.php?post_id={$Post_Id}'> Edit</a>";
+                        }
+                        
+                           
+
+                        ?>
+                    </div>
                 </div>
 
             </div>
