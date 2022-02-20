@@ -62,7 +62,7 @@ if (isset($_GET['post_id'])) {
                 $msg = "
 
                 <div class='alert alert-primary alert-dismissible fade show' role='alert'>
-                <strong>Updare  Post Successfully !</strong>
+                <strong>Update  Post Successfully !</strong>
                 <button type='button' class='close' data-dismiss='alert' aria-label='Close'>X</button>
                 </div>
                 ";
